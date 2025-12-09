@@ -4,8 +4,8 @@ import express from 'express'
 import dotenv from 'dotenv';
 import dbConnection from './config/db.js';
 dotenv.config();
- const port=5000
- console.log(port)
+ const port=3000
+ 
 ;
 const app=express();
 dbConnection()
