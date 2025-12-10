@@ -1,12 +1,11 @@
 import PdfViewer from "../components/PdfViewers.jsx"
+import UploadPdf from "../components/UploadPdf.jsx"
 const Home = ()=>{
 
     return(
         <>
-        <h1 className="text-3xl font-bold underline">
-            this is the Home Page
-           
-        </h1>
+       <UploadPdf/>
+
        
         </>
     )
