@@ -3,12 +3,15 @@ import React ,{useState}from 'react'
 const UploadPdf =()=>{
   const [file , setFile]=useState()
 
-    const handleDragOver=(e)=>{
+    const handleUpload=(e)=>{
         e.preventDefault();
-        const selectedFile=e.target.Files[0]
-        if(selectedFile)
+        const selectedFile=e.target.files[0]
+        if(selectedFile&& selectedFile.type==="application/pdf")
         {
-          setFile(selectedFile.name)
+          setFile(selectedFile)
+        }
+        else{
+            alert("please select a pdf file")
         }
     }
 
@@ -26,13 +29,11 @@ const UploadPdf =()=>{
             <div className="relative inline-block">
                 <div className="w-full h-auto px-3 py-1 bg-gray-200 text-[0.8rem] text-gray dark:bg-gray-800 dark:bg-white rounded-md">
                  <span className='text-black text-base  font-medium'>File Name:{" "}</span>
-                 {file}
+                 {file.name}
                 </div>
-                <button className="btn absolute -top-3 -right-2 bg-gray-200 text-red-500 dark:text-red-400 cursor-pointer rounded-sm">
-                    onClicke={handleclearFile}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-x" viewBox="0 0 16 16">
-  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-</svg>
+                <button className="btn absolute -top-3 -right-2 bg-gray-200 text-red-500 dark:text-red-400 cursor-pointer rounded-sm "onClick ={handleclearFile}>
+                    
+                  clear file
                 </button>
             </div>
            </div>
@@ -51,7 +52,7 @@ const UploadPdf =()=>{
            </label>
         )}
     </div> 
-           <input  id="dragdrop-file"type= "file"  className="hidden" onChange={handleDragOver}/>
+           <input  id="dragdrop-file"type= "file"  className="hidden" onChange={handleUpload}/>
 
             </div>
 
