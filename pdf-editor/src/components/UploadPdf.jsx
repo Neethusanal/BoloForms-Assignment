@@ -1,8 +1,10 @@
 
 import React ,{useState}from 'react'
+import axios from 'axios';
+
 const UploadPdf =()=>{
   const [file , setFile]=useState()
-
+ 
     const handleUpload=(e)=>{
         e.preventDefault();
         const selectedFile=e.target.files[0]
@@ -17,6 +19,16 @@ const UploadPdf =()=>{
 
     const handleclearFile=()=>{
         setFile(null)
+    }
+    const handleSubmit=async()=>{
+      if(!file)
+      {
+        alert("no file uploaded")
+        return
+      }
+      else{
+
+      }
     }
     return(
         <>
