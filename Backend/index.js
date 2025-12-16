@@ -3,6 +3,7 @@
 import express from 'express'
 import dotenv from 'dotenv';
 import dbConnection from './config/db.js';
+import cors from'cors';
 dotenv.config();
  const port=4000
  
@@ -10,6 +11,7 @@ dotenv.config();
 const app=express();
 dbConnection()
 app.use(express.json());
+app.use(cors())
 
 
 
