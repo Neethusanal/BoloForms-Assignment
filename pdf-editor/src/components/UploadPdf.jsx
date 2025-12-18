@@ -27,6 +27,25 @@ const UploadPdf =()=>{
         return
       }
       else{
+ const formData=new FormData()
+  formData.append("pdf",file);
+  try{
+    const response = await axios.post(
+  "http://localhost:4000/upload",
+  formData,
+  {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  }
+);
+
+     console.log(response.data);
+
+  }catch(err)
+  {
+    console.error("something went wrong",err)
+  }
 
       }
     }
@@ -38,16 +57,20 @@ const UploadPdf =()=>{
     <div className="flex items-start w-full">
         {file ? (
            <div className="text-start my-3">
-            <div className="relative inline-block">
+            <div className="relative ">
                 <div className="w-full h-auto px-3 py-1 bg-gray-200 text-[0.8rem] text-gray dark:bg-gray-800 dark:bg-white rounded-md">
                  <span className='text-black text-base  font-medium'>File Name:{" "}</span>
                  {file.name}
                 </div>
-                <button className="btn absolute -top-3 -right-2 bg-gray-200 text-red-500 dark:text-red-400 cursor-pointer rounded-sm "onClick ={handleclearFile}>
+                <button className="btn absolute -top-7 -right-10 bg-gray-200 text-red-500 dark:text-red-400 cursor-pointer rounded-sm "onClick ={handleclearFile}>
                     
                   clear file
                 </button>
+                  <button  onClick={handleSubmit}
+              className="bg-blue-600 text-white px-4 py-2 rounded">continue</button>
+              
             </div>
+            
            </div>
         ):(
            <label htmlFor="dragdrop-file" className='flex flex-col items-center border-dashed rounded-lg justify-center w-full h-[17vh] border-2 border-gray-400 cursor-pointer bg-gray-300'>
