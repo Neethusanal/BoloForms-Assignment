@@ -3,6 +3,7 @@
 import express from 'express'
 import dotenv from 'dotenv';
 import dbConnection from './config/db.js';
+import mainRoute from './routes/mainroute.js'
 import cors from'cors';
 dotenv.config();
  const port=4000
@@ -17,7 +18,7 @@ app.use(cors());
 
 
 
-
+app.use("/", mainRoute); 
 
 
 app.listen(port,()=>{

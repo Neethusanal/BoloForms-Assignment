@@ -1,7 +1,8 @@
-import  PdfModel from "../model/PdftModel.js";
+import  PdfModel from '../Model/PdfModel.js';
 
 export const pdfUpload = async (req, res) => {
 //   try {
+console.log("enterd")
     console.log(req.body);
 
 //     const {

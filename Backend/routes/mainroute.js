@@ -1,5 +1,5 @@
 import express from 'express';
-import { pdfUpload } from '../Controller/maincontroller';
+import { pdfUpload } from '../Controller/maincontroller.js';
 
 const router = express.Router()
 
